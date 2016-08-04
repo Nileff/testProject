@@ -1,3 +1,4 @@
+//get initial state from JSON string in localStorage
 const initialWorker = {item: (JSON.parse(localStorage.getItem('worker')) || [])};
 
 export default function worker(state = initialWorker, action) {
@@ -8,7 +9,7 @@ export default function worker(state = initialWorker, action) {
             if (action.payload.pathname.length !== 1)
                 return {item: item, new: -1};
             else
-                return state
+                return state;
         case 'ADD_WORKER':
             item.push(action.worker);
             localStorage.setItem('worker', JSON.stringify(item));

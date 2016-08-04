@@ -39,10 +39,13 @@ export default React.createClass({
             this.changeAddOpen();
     },
     render: function () {
+        //copy workers array
         let sortWorker = this.props.workers.item.slice();
+        //copy index of array elements as id
         for (let i = 0; i < sortWorker.length; i++) {
             sortWorker[i].id = i;
         }
+        //sort copy of workers array
         sortWorker.sort(this.sortWorkers);
         let tableRows = sortWorker.map(
             (item) => <Row key={item.id} className={+this.props.workers.new === item.id ? "new" : ""} worker={item}/>

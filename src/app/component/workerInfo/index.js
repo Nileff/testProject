@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux'
 
 import { edit, del } from '../../actions/action'
 
-import Worcker from './worker'
+import Worker from './worker'
 
 export default connect(
     state => ({ workers: state.workers }),
     dispatch => bindActionCreators({edit, del}, dispatch)
-)(Worcker)
+)(Worker)

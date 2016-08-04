@@ -44,9 +44,11 @@ export default React.createClass({
     handleDelWorker: function () {
         this.props.handleDelWorker(this.state.idWorker);
         this.props.handleClose();
+        //go to main page
         window.location.hash = '';
     },
     componentWillMount: function () {
+        //if form in edit mode -> copy props to state
         if (this.props.idWorker >= 0) {
             this.setState({idWorker: this.props.idWorker, worker: this.props.worker})
         }
