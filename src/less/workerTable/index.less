@@ -1,0 +1,140 @@
+.table {
+  margin: @size__unit * 1 0;
+  background-color: @color__tableMain;
+  border-radius: 5px;
+  overflow: hidden;
+
+  &-header {
+    display: none;
+
+    @media all and (min-width: @size__mobile_width) {
+      display: block;
+      float: left;
+      width: 100%;
+      background-color: @color__titleBackground;
+      color: @color__titleContent;
+      font-size: 1.6rem;
+      line-height: 2 * @size__unit;
+    }
+
+    &__item {
+      float: left;
+      width: 33.33%;
+      box-sizing: border-box;
+      padding: 0 1.5 * @size__unit;
+      border: 0;
+      border-right: 1px solid @color__main;
+      cursor: pointer;
+
+      &.sort-desc, &.sort-asc{
+        //display: inline-block;
+        &:after {
+          padding: 0 0 0 4px;
+          font-family: @font__icon;
+          font-size: 1.2rem;
+        }
+      }
+
+      &.sort-desc:after{
+        content: '\e000';
+      }
+
+      &.sort-asc:after{
+        content: '\e001';
+      }
+    }
+
+    & > :last-child{
+      border: 0;
+    }
+  }
+
+  &-row{
+    float: left;
+    width: 100%;
+    font-size: 1.3rem;
+    line-height: 2 * @size__unit;
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+
+    &.new{
+      animation: blink .35s ease-in-out 3;
+    }
+
+    &.empty-row{
+      color: fade(black, 50%);
+      text-align: center;
+      line-height: 4 * @size__unit;
+
+      &:hover{
+        background-color: @color__tableMain;
+      }
+    }
+
+    @keyframes blink {
+      from{
+        background-color: @color__accent;
+      }
+      to{
+        background-color: @color__tableMain;
+      }
+    }
+
+    &__item {
+      float: left;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 1 * @size__unit;
+      border: 0;
+
+      &:before{
+        display: block;
+        float: left;
+        width: 4.5 * @size__unit;
+        font-size: 1rem;
+        color: fade(black, 50%);
+        text-align: right;
+        padding-right: @size__unit;
+      }
+
+      @media all and (min-width: @size__mobile_width) {
+        width: 33.33%;
+        border-right: 1px solid @color__main;
+        padding: 0 1.5 * @size__unit;
+
+        &:before{
+          display: none;
+        }
+      }
+    }
+
+    &__surname:before{
+      content: 'Фамилия:';
+    }
+
+    &__name:before{
+      content: 'Имя:';
+    }
+
+    &__position:before{
+      content: 'Должность:';
+    }
+
+    & > :last-child{
+      border: 0;
+    }
+
+    &:hover{
+      background-color: @color__tableHover;
+    }
+  }
+
+  & > :nth-child(2n + 1):not(.table-header){
+    background-color: @color__tableAdditional;
+
+    &:hover{
+      background-color: @color__tableHover;
+    }
+  }
+}

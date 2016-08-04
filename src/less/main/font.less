@@ -1,0 +1,18 @@
+.font(@font, @weight) {
+  font-family: @font;
+  src: url('font/@{font}.eot?#iefix') format('embedded-opentype'),
+  url('font/@{font}.woff2') format('woff2'),
+  url('font/@{font}.woff') format('woff'),
+  url('font/@{font}.ttf') format('truetype'),
+  url('font/@{font}.svg#@{font}') format('svg');
+  font-weight: @weight;
+  font-style: normal;
+}
+
+@font-face {
+  .font('droidsans', normal);
+}
+
+@font-face {
+  .font('iconfont', normal);
+}

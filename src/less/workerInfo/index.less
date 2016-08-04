@@ -1,0 +1,78 @@
+.workerInfo{
+  float: left;
+  width: 100%;
+  padding: @size__unit * 2 0;
+  box-sizing: border-box;
+
+  @media all and (min-width: @size__mobile_width) {
+    padding: @size__unit * 2 @size__unit * 4;
+  }
+
+  .button-wrapper{
+    float: left;
+    width: 100%;
+    .back-button{
+      float: left;
+      text-decoration: none;
+      color: @color__titleBackground;
+      margin: 0;
+      &:hover{
+        background-color: @color__tableMain;
+      }
+    }
+  }
+
+  .workerInfo__item{
+    position: relative;
+    margin: @size__unit 0 0 @size__unit * 8;
+    background-color: @color__tableMain;
+    float: left;
+    width: calc(~"100% - @{size__unit} * 10");
+    font-size: 1.8rem;
+    line-height: @size__unit * 3;
+    border-radius: 0 @size__unit @size__unit;
+    padding: 0 @size__unit;
+    min-height: @size__unit * 3;
+
+    @media all and (max-width: @size__smoll_mobile_width) {
+      font-size: 1.4rem;
+      margin: @size__unit 0 0 @size__unit * 6;
+      width: calc(~"100% - @{size__unit} * 8");
+    }
+
+    &:before{
+      display: inline-block;
+      position: absolute;
+      left: -@size__unit * 8;
+      width: @size__unit * 8;
+      font-size: 1.4rem;
+      color: fade(black, 50%);
+      background-color: @color__tableMain;
+      line-height: @size__unit * 2;
+      border-radius: @size__unit 0 0 @size__unit;
+      padding: 0 0 0 @size__unit;
+
+      @media all and (max-width: @size__smoll_mobile_width) {
+        font-size: 1.2rem;
+        left: -@size__unit * 6;
+        width: @size__unit * 6;
+      }
+    }
+  }
+
+  .workerInfo__surname:before{
+    content: 'Фамилия:';
+  }
+
+  .workerInfo__name:before{
+    content: 'Имя:';
+  }
+
+  .workerInfo__position:before{
+    content: 'Должность:';
+  }
+
+  .workerInfo__about:before{
+    content: 'Описание:';
+  }
+}

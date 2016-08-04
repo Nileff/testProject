@@ -1,0 +1,118 @@
+.upsert-form{
+  position: relative;
+  background: @color__tableMain;
+  display: inline-block;
+  vertical-align: middle;
+  padding: @size__unit;
+  border-radius: 5px;
+  max-width: @size__unit * 14;
+
+  &.visible{
+    animation: fade .3s;
+  }
+  &.hide{
+    animation: fade .3s;
+    animation-direction: reverse;
+  }
+
+  @keyframes fade {
+    from {
+      transform: scale(0);
+    }
+    to{
+      transform: scale(1);
+    }
+  }
+
+  .title{
+    font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  form{
+    margin: @size__unit 0 0;
+
+    input, textarea{
+      width: 100%;
+      height: @size__unit * 2;
+      line-height: @size__unit * 2;
+      box-sizing: border-box;
+      margin: 0 0 @size__unit * .5;
+      padding: 0 @size__unit * .5;
+      font-family: @font__text;
+      font-size: 1.5rem;
+      border: 1px solid fade(black, 50%);
+      border-radius: 4px;
+      vertical-align: middle;
+
+      &::placeholder{
+        color: fade(black, 50%);
+        font-size: 1.3rem;
+      }
+    }
+
+    .noValid{
+      position: relative;
+      &:after{
+        content: '!';
+        display: block;
+        float: right;
+        color: @color__redHover;
+        height: @size__unit * 2;
+        width: @size__unit * 2;
+        line-height: @size__unit * 2;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2rem;
+      }
+      input, textarea{
+        border: 1px solid @color__redHover;
+      }
+    }
+
+    textarea{
+      resize: vertical;
+      max-height: @size__unit * 14;
+      height: @size__unit * 4.5;
+    }
+  }
+
+  .button-close{
+    position: absolute;
+    top: 0;
+    right: -@size__unit * 2;
+    width: @size__unit * 2;
+    height: @size__unit * 2;
+    line-height: @size__unit * 2;
+    font-size: 2rem;
+    color: fade(@color__main, 60%);
+
+    &:hover{
+      color: @color__main;
+    }
+  }
+
+  .button-add, .button-edit{
+    background-color: @color__green;
+    color: @color__tableMain;
+
+    &:hover{
+      background-color: @color__greenHover;
+    }
+  }
+
+  .button-delete{
+    background-color: @color__tableMain;
+    color: @color__red;
+    border: 1px solid @color__red;
+    line-height: @size__unit * 2 - 4px;
+
+    &:hover{
+      color: @color__redHover;
+      border: 1px solid @color__redHover;
+    }
+  }
+}

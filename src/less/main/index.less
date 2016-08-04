@@ -1,0 +1,117 @@
+@size__max_width: 800px;
+
+html {
+  font-family: @font__text;
+  font-size: 12px;
+}
+
+body {
+  margin: @size__unit auto;
+  padding: 0;
+  background-color: @color__main;
+  max-width: @size__max_width - @size__unit * 2;
+
+  @media all and (max-width: @size__max_width) {
+    margin: @size__unit;
+  }
+}
+
+.title {
+  display: inline-block;
+  font-size: 2.1rem;
+  color: @color__titleBackground;
+  line-height: @size__unit * 2;
+  padding: 0 @size__unit;
+  margin: 0 @size__unit;
+  border: 0;
+  border-bottom: 1px solid @color__titleBackground;
+}
+
+.flat-button {
+  position: fixed;
+  bottom: @size__unit * 2;
+  right: @size__unit * 2;
+  width: @size__unit * 3;
+  height: @size__unit * 3;
+  line-height: @size__unit * 3;
+  background-color: @color__accent;
+  border-radius: 50%;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: @font__icon;
+  color: @color__main;
+  transition: bottom .4s;
+  opacity: .75;
+
+  &:hover {
+    background-color: @color__accentHover;
+    opacity: 1;
+  }
+
+  &.hide{
+    bottom: -@size__unit * 3;
+    transition: bottom .4s;
+  }
+
+  &.center{
+    bottom: calc(~"50vh - @{size__unit} * 1.5");
+    right: calc(~"50vw - @{size__unit} * 1.5");
+    transition: bottom .4s, right .3s;
+
+    &.hide{
+      bottom: -@size__unit * 3;
+      right: @size__unit * 2;
+      left: auto;
+      transition: bottom .4s, right .6s;
+    }
+  }
+}
+
+.standart-button{
+  float: right;
+  width: @size__unit * 3.5;
+  height: @size__unit * 2;
+  line-height: @size__unit * 2;
+  border-radius: @size__unit;
+  font-size: 1.8rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: @font__icon;
+  box-sizing: border-box;
+  margin: 0 0 0 @size__unit;
+}
+
+.modal-window{
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: fade(black, 80%);
+  text-align: center;
+
+  &:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+  }
+
+  &.visible{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .4s;
+  }
+
+  &.hide{
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s ease-out .41s, opacity .4s;
+    animation: fade 3s;
+    animation-direction: reverse;
+  }
+}
